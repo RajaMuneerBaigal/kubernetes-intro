@@ -20,3 +20,12 @@ Kubernetes provides you with:
 - Horizontal scaling Scale your application up and down with a simple command, with a UI, or automatically based on CPU usage.
 - IPv4/IPv6 dual-stack Allocation of IPv4 and IPv6 addresses to Pods and Services
 - Designed for extensibility Add features to your Kubernetes cluster without changing upstream source code.
+
+#### Kubernetes Architecture Terminology
+- Kubernets     : The whole orchestration system. K8s or kube for short
+- kubectl       : Cli to configure kubernetes and manage apps. Kubecontrol is the short form means we can control kubernetes using kubectl
+- node          : A singel server in kubernetes cluster
+- kubelet       : kubernetes agents running on nodes
+- Control Plane : 
+- 
+- 
