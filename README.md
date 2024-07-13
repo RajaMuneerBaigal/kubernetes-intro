@@ -68,10 +68,8 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
     
    -------------------------------------------------
 
-- **kubectl create**  : used to create many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker create i.e network, container, volume. This is what is happening when we are creating a deployment. Deployments actually created replica sets and those replica sets are responsible for creating pods and pods then create containers.
-![image](https://github.com/user-attachments/assets/a0f6df07-6a38-43d1-8aea-67cc5466e012)
-
-  
+- **kubectl create**  : used to create many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker create i.e network, container, volume.
+- 
    **Syntax:**
      
     kubectl create anyresourcetype resourcename --image imagename
@@ -80,7 +78,8 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
   
     kubectl create deployment my-nginx --image nginx:alpine
 
-  
+  - When we request a deployment, it is sent to the control plane which has a web api to which we have been talking and it takes that record and stores it in the etcd database and that etcd database stores the data for deployment. There is a control manager inside the control plane and the manager's job is to look at all the different type of resources and make sure to assign a controller that is assigned to that resource type that we have requested in our case it is deployment or pod. And the job of a deployment resource is to do one thing to create replicaset. A deployment doesn't really creates pod's directly it creates replicasets because thats what help us in rolling updates making sure we can create new deployments without having to remove the old ones so incase of failure we can roll back to our previouse replicaset. When the control manager sees a record for deployment in etcd database it assings a replicaset controller and see's that it needs to create some pods so it creates the definition of those  pods by adding them to the etcd database and now a scheduler which continously takes to etcd notices that pods have not be scheduled to a node and once the pods have been scheduled to a node then kubelet creates those pods
+![image](https://github.com/user-attachments/assets/a0f6df07-6a38-43d1-8aea-67cc5466e012)
    -------------------------------------------------
 
 - **kubectl delete**  : used to delete many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker rm i.e network, container, volume.
