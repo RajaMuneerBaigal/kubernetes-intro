@@ -43,7 +43,8 @@ Kubernetes provides you with:
  -------------------------------------------------
 we get three ways to create pods from the kubectl CLI:
 - **kubectl run**     : use to create a single pod per command. Similar to docker run
-     **Syntax:**     
+  
+  **Syntax:**     
     kubectl run service-name --image imagename
     
   **Usage:**        
