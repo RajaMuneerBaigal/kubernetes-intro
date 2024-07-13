@@ -69,12 +69,23 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
    -------------------------------------------------
 
 - **kubectl create**  : used to create many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker create i.e network, container, volume
-- 
+  
    **Syntax:**     
     kubectl create anyresourcetype resourcename --image imagename
   
   **Usage:**
     kubectl create deployment my-nginx --image nginx:alpine
+    
+   -------------------------------------------------
+
+  - **kubectl delete**  : used to delete many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker rm i.e network, container, volume
+  
+   **Syntax:**     
+    kubectl delete anyresourcetype resourcename
+  
+  **Usage:**
+    kubectl delete deployment my-nginx
+    kubectl delete pod my-nginx
     
    -------------------------------------------------
 - **kubectl apply**   : create/update anything via yml file. Similar to docker stack deploy where we use yml file to deploy containers
