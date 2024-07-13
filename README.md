@@ -120,11 +120,16 @@ It is very important when dealing with deployments/pods/services to know the sta
 - **kubectl get**: Used to get information about pods,deployments,replicasets,services and so on. It has a weakness that it can only show one resource at a time.
 
     **Usage**:
-    kubectl get services 
+    kubectl get services
+  
     kubectl get --help for more on how to use it
+  
     kubectl get deployment my-nginx
+  
     kubectl get deploy my-apache -o wide
+  
     kubectl get service -o wide
+  
     kubectl get pods -o yaml
    
 - **kubectl describe**
