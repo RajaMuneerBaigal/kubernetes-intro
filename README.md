@@ -69,7 +69,7 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
     kubectl get deployment my-nginx
     kubectl get deploy my-apache -o wide
     kubectl get service -o wide
-    kubectl get pods -o wide
+    kubectl get pods -o yaml
 
 
    -------------------------------------------------
