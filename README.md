@@ -46,7 +46,6 @@ we get three ways to create pods from the kubectl CLI:
   
   **Syntax:**     
     kubectl run service-name --image imagename
-    
   **Usage:**        
     kubectl run my-nginx --image nginx
    -------------------------------------------------
