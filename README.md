@@ -48,15 +48,19 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
 - **kubectl run**     :use to create a single pod per command. Similar to docker run command.
 
   **Syntax:**     
-    kubectl run anypodname --image imagename    
+    kubectl run anypodname --image imagename
+  
   **Usage:**
     kubectl run my-alpine --image alpine 
     
    -------------------------------------------------
   
 - **kubectl get**     :use to list all the pods i.e similar like docker ps The kubectl get is an important command as thats how we get info back from api. resource types can be pods,services, all and can be 70-80 resource types
+  
   **Syntax:** 
-    kubectl get pods/all/services 
+    kubectl get pods/all/services
+
+  
   **Usage:**
     kubectl get pods
     kubctl get all
