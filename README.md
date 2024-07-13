@@ -46,6 +46,7 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
 
 
 - **kubectl run**     :use to create a single pod per command. Similar to docker run command.
+
   **Syntax:**     
     kubectl run anypodname --image imagename    
   **Usage:**
