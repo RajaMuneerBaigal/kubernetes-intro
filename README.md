@@ -42,12 +42,12 @@ Kubernetes provides you with:
 ### Creating Pods in Kubernetes:
  -------------------------------------------------
 we get three ways to create pods from the kubectl CLI:
-- **kubectl run**     : use to create a single pod per command. Similar to docker run
-  
-  **Syntax:**     
-    kubectl run service-name --image imagename
-  **Usage:**        
-    kubectl run my-nginx --image nginx
+- **kubectl run**     :use to create a single pod per command. Similar to docker run
+ **Syntax:**     
+    help command
+    
+ **Usage:**        
+    help echo
    -------------------------------------------------
 
 - **kubectl create**  : use to create some resources via cli or yml file. Similar to docker create i.e network, container, volume
