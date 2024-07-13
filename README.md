@@ -41,13 +41,26 @@ Kubernetes provides you with:
 
 ### Creating Pods in Kubernetes:
  -------------------------------------------------
-we get three ways to create pods from the kubectl CLI:
-- **kubectl run**     :use to create a single pod per command. Similar to docker run
- **Syntax:**     
-    help command
+we get three ways to create pods from the kubectl CLI: kubectl run, kubectl create, kubectl apply. Pods are specifically a kubernetes concept. Unlike docker we can't directly create a container in k8s so we create pods and then k8s creates the containers inside the pod. Kubernetes uses kubelet(agent running on node) to create containers which in turn tells the container runtime(docker,contained,podmon) resulting in creating containers. Every resource type in kubernetes that wants to create containers does it via pods.
+![image](https://github.com/user-attachments/assets/27fcb4db-4d93-4e25-9f68-acbe74206a97)
+
+
+- **kubectl run**     :use to create a single pod per command. Similar to docker run command.
+  **Syntax:**     
+    kubectl run anypodname --image imagename    
+  **Usage:**
+    kubectl run my-alpine --image alpine 
     
- **Usage:**        
-    help echo
+   -------------------------------------------------
+  
+- **kubectl get**     :use to list all the pods i.e similar like docker ps The kubectl get is an important command as thats how we get info back from api. resource types can be pods,services, all and can be 70-80 resource types
+  **Syntax:** 
+    kubectl get pods/all/services 
+  **Usage:**
+    kubectl get pods
+    kubctl get all
+    kubectl get services 
+    
    -------------------------------------------------
 
 - **kubectl create**  : use to create some resources via cli or yml file. Similar to docker create i.e network, container, volume
