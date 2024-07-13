@@ -68,7 +68,9 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
     
    -------------------------------------------------
 
-- **kubectl create**  : used to create many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker create i.e network, container, volume
+- **kubectl create**  : used to create many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker create i.e network, container, volume. This is what is happening when we are creating a deployment. Deployments actually created replica sets and those replica sets are responsible for creating pods and pods then create containers.
+![image](https://github.com/user-attachments/assets/a0f6df07-6a38-43d1-8aea-67cc5466e012)
+
   
    **Syntax:**
      
@@ -77,10 +79,11 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
   **Usage:**
   
     kubectl create deployment my-nginx --image nginx:alpine
-    
+
+  
    -------------------------------------------------
 
-- **kubectl delete**  : used to delete many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker rm i.e network, container, volume
+- **kubectl delete**  : used to delete many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker rm i.e network, container, volume.
   
    **Syntax:**
     
