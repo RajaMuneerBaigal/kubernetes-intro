@@ -90,6 +90,7 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
   **Usage:**
   
     kubectl delete deployment my-nginx
+  
     kubectl delete pod my-nginx
     
    -------------------------------------------------
