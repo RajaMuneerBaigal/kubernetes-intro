@@ -117,9 +117,9 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
 
 ### Inspecting Kubernetes Resources
 It is very important when dealing with deployments/pods/services to know the status of that, how is it running,what resources it is creating,Is there any failure in creating resources. So to inspect kubernetes resources Kubectl provides us with the following commands.
-- **kubectl get**: Used to get information about pods,deployments,replicasets,services and so on. It has a weakness that it can only show one resource at a time.
-
+- **kubectl get**: Used to get information about pods,deployments,replicasets,services and so on.
     **Usage**:
+  
     kubectl get services
   
     kubectl get --help for more on how to use it
@@ -131,6 +131,25 @@ It is very important when dealing with deployments/pods/services to know the sta
     kubectl get service -o wide
   
     kubectl get pods -o yaml
-   
-- **kubectl describe**
 
+    kubectl get nodes
+   
+- **kubectl describe**: Kubectl get has a weakness that it can only show one resource at a time.We need a command that combines related resources. i.e parent/child, events of that resources so that where describe commands comes. It only shows important details about a pod,deployment,replicaset or service.
+   
+  **Syntax:**
+  
+    kubectl describe anyresourcetype resourcename
+  
+    kubectl describe anyresourcetype resourcename
+  
+  **Usage**:
+  
+    kubectl describe deployment my-nginx
+  
+    kubectl describe pod my-nginx
+  
+    kubectl describe replicaset
+
+    kubectl describe node nodename
+  
+    kubectl describe --help to get more details on how to use it.
