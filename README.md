@@ -81,7 +81,7 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
 ![image](https://github.com/user-attachments/assets/a0f6df07-6a38-43d1-8aea-67cc5466e012)
    -------------------------------------------------
 
-- **kubectl delete**  : used to delete many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker rm i.e network, container, volume.
+- **kubectl delete**  : used to delete any type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker rm i.e network, container, volume.
   
    **Syntax:**
     
@@ -95,3 +95,82 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
     
    -------------------------------------------------
 - **kubectl apply**   : create/update anything via yml file. Similar to docker stack deploy where we use yml file to deploy containers
+  
+    -------------------------------------------------
+
+- **kubectl scale deployment**  : used to add more replicas to a deployment. It will change the deployment record. Controll Manager will see that only replica count has changed so it won't create a new replica set. It would only create if we change the image or tag
+  
+   **Syntax:**
+    
+    kubectl scale resourcetype resourcename --replicas anynumber
+  
+  **Usage:**
+  
+    kubectl scale deployment my-nginx --replicas 2
+  
+    kubectl scale deploy/my-nginx --replicas 2
+
+    **Note**: deploy=deployment=deployments i.e we can use any of these
+
+  -------------------------------------------------
+
+  
+   **Syntax:**
+    
+    kubectl delete anyresourcetype resourcename
+  
+  **Usage:**
+  
+    kubectl delete deployment my-nginx
+  
+    kubectl delete pod my-nginx
+    
+   -------------------------------------------------
+    
+   **Syntax:**
+    
+    kubectl delete anyresourcetype resourcename
+  
+  **Usage:**
+  
+    kubectl delete deployment my-nginx
+  
+    kubectl delete pod my-nginx
+    
+   -------------------------------------------------
+    
+   **Syntax:**
+    
+    kubectl delete anyresourcetype resourcename
+  
+  **Usage:**
+  
+    kubectl delete deployment my-nginx
+  
+    kubectl delete pod my-nginx
+    
+   -------------------------------------------------
+    
+   **Syntax:**
+    
+    kubectl delete anyresourcetype resourcename
+  
+  **Usage:**
+  
+    kubectl delete deployment my-nginx
+  
+    kubectl delete pod my-nginx
+    
+   -------------------------------------------------
+    
+   **Syntax:**
+    
+    kubectl delete anyresourcetype resourcename
+  
+  **Usage:**
+  
+    kubectl delete deployment my-nginx
+  
+    kubectl delete pod my-nginx
+    
+   -------------------------------------------------
