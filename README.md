@@ -132,6 +132,8 @@ It is very important when dealing with deployments/pods/services to know the sta
   
     kubectl get pods -o yaml
 
+    kubectl get pods -w
+
     kubectl get nodes
    
 - **kubectl describe**: Kubectl get has a weakness that it can only show one resource at a time.We need a command that combines related resources. i.e parent/child, events of that resources so that where describe commands comes. It only shows important details about a pod,deployment,replicaset or service.
