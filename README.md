@@ -55,7 +55,7 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
     
    -------------------------------------------------
   
-- **kubectl get**     :use to list all the pods i.e similar like docker ps The kubectl get is an important command as thats how we get info back from api. resource types can be pods,services, all and can be 70-80 resource types
+- **kubectl get**     :use to list all the pods i.e similar like docker ps The kubectl get is an important command as thats how we get info back from api. resource types can be pods,services, all and can be 70-80 resource types. 
   
   **Syntax:** 
     kubectl get pods/all/services
@@ -65,7 +65,13 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
     kubectl get pods
     kubctl get all
     kubectl get services 
-    
+    kubectl get --help for more on how to use it
+    kubectl get deployment my-nginx
+    kubectl get deploy my-apache -o wide
+    kubectl get service -o wide
+    kubectl get pods -o wide
+
+
    -------------------------------------------------
 
 - **kubectl create**  : used to create many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker create i.e network, container, volume.
@@ -114,63 +120,5 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
 
   -------------------------------------------------
 
-  
-   **Syntax:**
-    
-    kubectl delete anyresourcetype resourcename
-  
-  **Usage:**
-  
-    kubectl delete deployment my-nginx
-  
-    kubectl delete pod my-nginx
-    
-   -------------------------------------------------
-    
-   **Syntax:**
-    
-    kubectl delete anyresourcetype resourcename
-  
-  **Usage:**
-  
-    kubectl delete deployment my-nginx
-  
-    kubectl delete pod my-nginx
-    
-   -------------------------------------------------
-    
-   **Syntax:**
-    
-    kubectl delete anyresourcetype resourcename
-  
-  **Usage:**
-  
-    kubectl delete deployment my-nginx
-  
-    kubectl delete pod my-nginx
-    
-   -------------------------------------------------
-    
-   **Syntax:**
-    
-    kubectl delete anyresourcetype resourcename
-  
-  **Usage:**
-  
-    kubectl delete deployment my-nginx
-  
-    kubectl delete pod my-nginx
-    
-   -------------------------------------------------
-    
-   **Syntax:**
-    
-    kubectl delete anyresourcetype resourcename
-  
-  **Usage:**
-  
-    kubectl delete deployment my-nginx
-  
-    kubectl delete pod my-nginx
-    
-   -------------------------------------------------
+### Inspecting Kubernetes Resources
+
