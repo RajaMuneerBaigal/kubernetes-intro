@@ -68,5 +68,13 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
     
    -------------------------------------------------
 
-- **kubectl create**  : use to create some resources via cli or yml file. Similar to docker create i.e network, container, volume
+- **kubectl create**  : used to create many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker create i.e network, container, volume
+- 
+   **Syntax:**     
+    kubectl create anyresourcetype resourcename --image imagename
+  
+  **Usage:**
+    kubectl create deployment my-nginx --image nginx:alpine
+    
+   -------------------------------------------------
 - **kubectl apply**   : create/update anything via yml file. Similar to docker stack deploy where we use yml file to deploy containers
