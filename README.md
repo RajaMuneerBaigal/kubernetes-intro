@@ -227,9 +227,10 @@ Once we have pods running in our Kubernetes we probably want to expose them to e
     
 **Usage:**
     kubectl  expose deployment httpenv --port 8888
+
+    ------------------------------------------------------------
     
-    
-**Creating a NodePort:**
+**Creating a NodePort Service:**
  
 **- kubectl expose for NodePort**: Before exposing we need to have a deployment in our kubernetes
 
@@ -241,7 +242,19 @@ Once we have pods running in our Kubernetes we probably want to expose them to e
     kubectl  expose deployment httpenv --port 8888 --name httpenv-np --type NodePort
 
 **Note** This creates a service named httpenv which we could get by kubectl get services and we will notice a port mapping there. Unlike docker the port on left is container inside port and port on right is the port exposed on the node the cluster is running so we can can access it via localhost:port_on_right. This will be a high port randomly assigned. The NodePort service also creates ClusterIp and Loadbalancer service creates both NodePort and clusterIP.
+
+------------------------------------------------------------
+
+**Creating a LoadBalancer Service:**
+ 
+**- kubectl expose for LoadBalancer**: Before exposing we need to have a deployment in our kubernetes
+
+**Syntax:**
+    kubectl expose deployment deploymentname --port portonwhichappisrunning --name anyname --type LoadBalancer
     
+
+**Usage:**
+    kubectl  expose deployment httpenv --port 8888 --name httpenv-lb --type LoadBalancer
 
    
 
