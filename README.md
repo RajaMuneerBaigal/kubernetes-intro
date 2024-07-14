@@ -173,6 +173,6 @@ The kubernetes logs aren't stored in api or etcd database these logs are stored 
   
   **Usage**:
   
-    kubectl logs deploy/my-nginx          [comment]: # (picks a random replica, only logs the first container logs defined in manifest/yaml file)
+    kubectl logs deploy/my-nginx               [//]: # (picks a random replica, only logs the first container logs defined in yaml file)
 
     kubectl logs deploy/my-nginx --follow --tail 1    //follows new log entries with the latest log line
