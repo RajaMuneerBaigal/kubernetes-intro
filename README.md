@@ -176,6 +176,8 @@ The kubernetes logs aren't stored in api or etcd database these logs are stored 
   **Usage**:
 
      kubectl logs pod my-apache-5bd7979764-clxdp
+
+     kubectl logs deploy/my-nginx -c httpd     &emsp; &emsp; &emsp;  -c specifies image name
   
     kubectl logs deploy/my-nginx                        &emsp; &emsp; &emsp;   &emsp; &emsp; &emsp; &emsp; &emsp;    picks a random replica, only logs the first container logs defined in yaml file
 
