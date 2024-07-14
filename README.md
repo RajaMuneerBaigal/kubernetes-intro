@@ -259,4 +259,36 @@ Once we have pods running in our Kubernetes we probably want to expose them to e
     kubectl  expose deployment httpenv --port 8888 --name httpenv-lb --type LoadBalancer
 
    
+------------------------------------------------------------
 
+### Kubernetes Management techniques
+When we were writing kubectl commands either it be get,create,delete  use helper templates called generators. Every resource in kubernetes has a specification or spec. Generators are different for each type of service we are creating either it be deployment,service,pod,job and so on. To understand how a generator works we can use the following command:
+
+**kubectl create deployment sample --image nginx --dry-run=client -o yaml**
+
+We can output those templates using --dry-run=client -o yaml
+
+**Examples:**
+
+**kubectl create deployment sample --image nginx --dry-run=client -o yaml**
+```
+ kubectl create job test --image nginx --dry-run=client -o yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: test
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: nginx
+        name: test
+        resources: {}
+      restartPolicy: Never
+status: {}
+
+
+```
