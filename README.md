@@ -223,21 +223,22 @@ Once we have pods running in our Kubernetes we probably want to expose them to e
 **Syntax:**
     kubectl expose deployment deploymentname --port portonwhichappisrunning
     
-
+    kubectl expose deployment deploymentname --port portonwhichappisrunning --type ClusterIP
+    
 **Usage:**
     kubectl  expose deployment httpenv --port 8888
     
     
-**Creating a ClusterIP:**
+**Creating a NodePort:**
  
-**- kubectl expose for ClusterIP service**: Before exposing we need to have a deployment in our kubernetes, and need to create another pod which will ping this service as cluster IP works internally only reachable within the cluster.
+**- kubectl expose for NodePort**: Before exposing we need to have a deployment in our kubernetes
 
 **Syntax:**
-    kubectl expose deployment deploymentname --port portonwhichappisrunning
+    kubectl expose deployment deploymentname --port portonwhichappisrunning --name anyname --type NodePort
     
 
 **Usage:**
-    kubectl  expose deployment httpenv --port 8888
+    kubectl  expose deployment httpenv --port 8888 --name httpenv-np --type NodePort
     
     
 
