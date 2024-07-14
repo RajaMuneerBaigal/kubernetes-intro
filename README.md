@@ -271,6 +271,34 @@ We can output those templates using --dry-run=client -o yaml
 **Examples:**
 
 **kubectl create deployment sample --image nginx --dry-run=client -o yaml**
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: sample
+  name: sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: sample
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}
+
+```
 ```
  kubectl create job test --image nginx --dry-run=client -o yaml
 apiVersion: batch/v1
