@@ -134,13 +134,17 @@ It is very important when dealing with deployments/pods/services to know the sta
 
     kubectl get pods -w
 
+    kubectl get events --watch-only
+  
     kubectl get nodes
-   
+  
+   -------------------------------------------------
+  
 - **kubectl describe**: Kubectl get has a weakness that it can only show one resource at a time.We need a command that combines related resources. i.e parent/child, events of that resources so that where describe commands comes. It only shows important details about a pod,deployment,replicaset or service.
    
   **Syntax:**
   
-    kubectl describe anyresourcetype resourcename
+    kubectl describe anyresourcetype 
   
     kubectl describe anyresourcetype resourcename
   
@@ -155,3 +159,20 @@ It is very important when dealing with deployments/pods/services to know the sta
     kubectl describe node nodename
   
     kubectl describe --help to get more details on how to use it.
+
+------------------------------------------------------------
+
+### Logs in Kubernetes
+The kubernetes logs aren't stored in api or etcd database these logs are stored by default on each node within the container runtime. the kubernetes logs command tells the api to tell then the kubelet on each node to start send the logs back to the API so it can show us.
+
+- **kubectl logs**: used to get the logs for a container running in pods
+   
+  **Syntax:**
+  
+    kubectl logs deploy/deploymentname 
+  
+  **Usage**:
+  
+    kubectl logs deploy/my-nginx          / picks a random replica, only logs the first container logs defined in manifest/yaml file
+
+    kubectl logs deploy/my-nginx --follow --tail 1    //follows new log entries with the latest log line
