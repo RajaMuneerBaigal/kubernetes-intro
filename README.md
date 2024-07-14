@@ -181,6 +181,10 @@ The kubernetes logs aren't stored in api or etcd database these logs are stored 
 
      kubectl logs deploy/my-nginx --follow --tail 1      &emsp; &emsp; &emsp;               follows new log entries with the latest log line
 
+     kubectl logs -l app=my-nginx                    &emsp; &emsp; &emsp;   &emsp; &emsp; &emsp; &emsp; &emsp;    to do a label search depending upon deployment name which we can get using describe cmd
+
+
      kubectl logs pod my-nginx-5bd7979764-clxdp
 
      kubectl logs deploy/my-nginx --all-containers=true
+
