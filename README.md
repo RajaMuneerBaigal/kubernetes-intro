@@ -318,6 +318,8 @@ status: {}
 
 ```
 - **kubectl expose deployment my-nginx --port 80 --dry-run=client -o yaml**
+- For this to work we need to first create a deployment using
+  kubectl create deployment my-nginx --image nginx:alpine
 
 ```
 apiVersion: v1
