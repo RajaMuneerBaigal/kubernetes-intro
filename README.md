@@ -183,8 +183,63 @@ The kubernetes logs aren't stored in api or etcd database these logs are stored 
 
      kubectl logs -l app=my-nginx                    &emsp; &emsp; &emsp;   &emsp; &emsp; &emsp; &emsp; &emsp;    to do a label search via deployment name which we can get using describe cmd
 
-
      kubectl logs pod my-nginx-5bd7979764-clxdp
 
      kubectl logs deploy/my-nginx --all-containers=true
+  
+------------------------------------------------------------
+
+### Exposing Ports in Kubernetes
+Once we have pods running in our Kubernetes we probably want to expose them to external services which means allowing them to access connections in our cluster from outside cluster. Unlike docker it doesn't expose them directly we need to create services for them via which we can expose them. A service is an endpoint that is consistent so that the other things inside or outside the cluster might be able to access it. A service is a stable address for pod(s). When we create a Pod that doesn't automatically get a DNS name for external connectivity with an IP address we need to do it via service on top of that existing pod. There are various ways besides the expose command below to create a service. CoreDns being a part of the control plane is a reason that allows us to resolve services by name. How we get traffic to our service essentially is the job of one of the four different service types mentioned below. Cluster IP and node port are always available in Kubernetes
+
+- ClusterIP(default)
+   - Single, Internal virtual ip allocated
+   - only reachable from within the cluster
+   - pods can reach service on app port number
+- NodePort: Designed for something outside the cluster to talk to our services via IP address on the nodes themselves
+    - High port allocated on each node
+    - port is open on every node's IP
+    - anyone can connect if they can reach the node
+    - other pods need to be updated to this port
+    
+- LoadBalancer: The idea is to control the external load balancer via the Kubernetes command line. When we create this load balancer it automatically creates the clusterIp and NOdePort and then it takes to an external system which could be AWS load balancer or any other.
+    - Controls an LB endpoint external to the cluster
+    - only available when the infra provider gives you an LB(AWS ELB, etc)
+    - Creates Nodeports+Clusterip services, tells LB to send to a NodePorts
+      
+- ExternalName: This service is more about stuff needing to talk outside the cluster rather than inbound. So we need to create DNS names in the core DNS system so that the cluster can resolve external names
+    - Adds CNAME DNS record to CoreDNS only
+    - Not used for Pods, but for giving pods a DNS name to use for something outside Kubernetes
+    - 
+------------------------------------------------------------
+
+**- kubectl expose**: used to create a any of the above four service for existing pods. 
+
+------------------------------------------------------------
+**Creating a ClusterIP:**
+ 
+**- kubectl expose for ClusterIP service**: Before exposing we need to have a deployment in our kubernetes, and need to create another pod which will ping this service as cluster IP works internally only reachable within the cluster.
+
+**Syntax:**
+    kubectl expose deployment deploymentname --port portonwhichappisrunning
+    
+
+**Usage:**
+    kubectl  expose deployment httpenv --port 8888
+    
+    
+**Creating a ClusterIP:**
+ 
+**- kubectl expose for ClusterIP service**: Before exposing we need to have a deployment in our kubernetes, and need to create another pod which will ping this service as cluster IP works internally only reachable within the cluster.
+
+**Syntax:**
+    kubectl expose deployment deploymentname --port portonwhichappisrunning
+    
+
+**Usage:**
+    kubectl  expose deployment httpenv --port 8888
+    
+    
+
+   
 
