@@ -169,10 +169,15 @@ The kubernetes logs aren't stored in api or etcd database these logs are stored 
    
   **Syntax:**
   
-    kubectl logs deploy/deploymentname 
+    kubectl logs deploy/deploymentname
+
+    kubectl logs pod podname
   
   **Usage**:
+
+     kubectl logs pod my-apache-5bd7979764-clxdp
   
     kubectl logs deploy/my-nginx                        &emsp; &emsp; &emsp;   &emsp; &emsp; &emsp; &emsp; &emsp;    picks a random replica, only logs the first container logs defined in yaml file
 
     kubectl logs deploy/my-nginx --follow --tail 1      &emsp; &emsp; &emsp;               follows new log entries with the latest log line
+    
