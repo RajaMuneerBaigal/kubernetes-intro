@@ -340,3 +340,30 @@ status:
   loadBalancer: {}
 
 ```
+
+### Imperative vs Declaritive
+**Imperative:** 
+- Focus on how a program operates
+- Examples include  kubectl run, kubectl expose, kubectl create deployment, kubectl update and so on.
+- Better for learning,dev
+- we know the current state and what we need to do i.e create deployment, using expose to expose the service and so on.
+
+**Declaritive:**
+- Focus on what a program should accomplish
+- kubectl apply -f myresources.yaml
+- We don't know the current state and we just want the end result to be (yaml contents)
+- Resources can all be in a single yaml file or many files (whole dir)
+- Used in production and easiest way to automate i.e iaac
+
+### Three Management approaches defined by Kubernets
+- **Imperative commands**: run, expose,scale,edit,create deployment,delete
+    - Best for learning,dev,personal projects
+    - Easy to learn but hardest to manage over time
+- **Imperative Objects**: create -f file.yaml, replace -f file.yaml,delete and so on.
+    - Good for prod of small environments, single file per command
+    - stores our changes in git-base yaml files
+    - hard to automate
+- **Declaritive objects**: apply -f file.yaml or dir, diff
+    - Best for production
+    - Easier to automate
+    - Harder to understand and predict changes
