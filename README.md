@@ -411,7 +411,15 @@ The four mandatory parts for a manifest are defined above that are common for ea
 - **apiVersion**: We can get the api version the cluster supports
      - kubectl api-versions
 - **metadata**: only name is required
-- **spec**: where we define all the specifications for a resources
+- **spec**: where we define all the specifications for a resources. we can dig down deep using the resource type.
      - we can get all the keys each kind supports
        - kubectl explain services --recursive
+       - kubectl explain services.spec
+       - kubectl explain servies.spec.type
+       - kubectl explain deployment.spec
+       - kubectl explain deployment.spec.replicas
+       - kubectl explain deployment.spec.template.spec.volumes.nfs.server
+         
+         ![image](https://github.com/user-attachments/assets/66482dcd-5327-44f7-b429-36c97a1c924b)
+
   
