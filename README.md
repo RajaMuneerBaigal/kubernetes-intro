@@ -424,5 +424,7 @@ The four mandatory parts for a manifest are defined above that are common for ea
  
     **NOTE**: There is always kubernetes.io/docs or search kubernetes api on google to how to buid yaml spec part.
   
-**kubectl diff -f pod.yml**: To check the difference once you changed anything in yml file after deployment. Useful if you want to see which changes you made  
+**kubectl diff -f pod.yml**: To check the difference once you changed anything in yml file after deployment. Useful if you want to see which changes you made. it check the yaml we have applied before and changes we have made to the current yaml.
+
+**kubectl apply -f pod.yml --dry-run=server**: to check what is changed
   
