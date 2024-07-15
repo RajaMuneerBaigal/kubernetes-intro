@@ -373,3 +373,30 @@ status:
     - Best for production
     - Easier to automate
     - Harder to understand and predict changes
+      
+### Declaritive Kubernetes Yaml
+ Declaritive kubernetes is more of a DevOps style and used in production where all we have to do is to create,update,delete resources via yaml. It gives more control and is widely used in production.
+
+**Command**:
+
+**kubeclt apply** : used to apply the services defined in yaml format. We can use single file, whole dir containing yml files and even a url as well.
+
+**Syntax**:
+   kubectl apply -f filename.yml
+   kubectl apply -f mydirwithyamlfile/
+   kubectl apply -f urlpath
+
+**Usage**:
+   kubectl apply -f test.yml
+   kubectl apply -f yamlfiles/
+   kubectl apply -f https://bret.run/pod.yml
+
+### Kuberenetes Configuration via File
+- Kubernetes configuration can be done via yaml file or json file.
+- We can create a single file per resource or stack multiple resources into a single file using " --- " as separators and each file contains or more manifests. A full description of a resource is called manifest.
+- Each manifest describes an api object (deployment, job, secret)
+- Each manifest needs four parts( root key:values in the file)
+    - apiVersion
+    - kind
+    - metadata
+    - spec
