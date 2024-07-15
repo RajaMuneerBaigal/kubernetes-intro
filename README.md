@@ -423,5 +423,6 @@ The four mandatory parts for a manifest are defined above that are common for ea
          ![image](https://github.com/user-attachments/assets/66482dcd-5327-44f7-b429-36c97a1c924b)
  
     **NOTE**: There is always kubernetes.io/docs or search kubernetes api on google to how to buid yaml spec part.
-
+  
+**kubectl diff -f pod.yml**: To check the difference once you changed anything in yml file after deployment. Useful if you want to see which changes you made  
   
