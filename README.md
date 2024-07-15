@@ -400,3 +400,4 @@ status:
     - kind
     - metadata
     - spec
+**NOTE:** You can see the examples of these manifests in this repo name pod.yml for single pod, deployment for only deployment and then combined together via single file named combined.yml.
