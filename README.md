@@ -428,3 +428,5 @@ The four mandatory parts for a manifest are defined above that are common for ea
 
 **kubectl apply -f pod.yml --dry-run=server**: to check what is changed
   
+### Volumes in Kubernetes
+![image](https://github.com/user-attachments/assets/653a4f84-6610-4c5f-9e8e-d5f57ed7faca)
