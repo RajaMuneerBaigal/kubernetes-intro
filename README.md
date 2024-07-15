@@ -400,4 +400,18 @@ status:
     - kind
     - metadata
     - spec
+      
 **NOTE:** You can see the examples of these manifests in this repo name pod.yml for single pod, deployment for only deployment and then combined together via single file named combined.yml.
+
+### Building our own yaml files:
+The four mandatory parts for a manifest are defined above that are common for each resource. But how to get more information about these parts as we might notice that the kuberenetes has evolved over time so the api versions and etc. 
+
+- **kind**: we can get a list of resources the cluster supports
+     - kubectl api-resources
+- **apiVersion**: We can get the api version the cluster supports
+     - kubectl api-versions
+- **metadata**: only name is required
+- **spec**: where we define all the specifications for a resources
+      - we can get all the keys each kind supports
+         - kubectl explain services --recursive
+  
