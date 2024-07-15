@@ -412,6 +412,6 @@ The four mandatory parts for a manifest are defined above that are common for ea
      - kubectl api-versions
 - **metadata**: only name is required
 - **spec**: where we define all the specifications for a resources
-      - we can get all the keys each kind supports
-         - kubectl explain services --recursive
+     - we can get all the keys each kind supports
+       - kubectl explain services --recursive
   
