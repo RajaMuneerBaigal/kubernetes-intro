@@ -421,5 +421,7 @@ The four mandatory parts for a manifest are defined above that are common for ea
        - kubectl explain deployment.spec.template.spec.volumes.nfs.server
          
          ![image](https://github.com/user-attachments/assets/66482dcd-5327-44f7-b429-36c97a1c924b)
+ 
+    **NOTE**: There is always kubernetes.io/docs or search kubernetes api on google to how to buid yaml spec part.
 
   
