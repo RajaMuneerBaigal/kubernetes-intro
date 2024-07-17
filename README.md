@@ -441,5 +441,5 @@ kubectl set image deployment deploymentname containername=newimagename
   kubectl set image deployment myapp mywebapp=httpd:latest
 
 ### **Some Important commands**:
-- kubectl rollout status deployment deploymentname     : To check the status of rollout for a deployment
--        
+- kubectl rollout status deployment deploymentname &emsp;&emsp;&emsp;&emsp;    : To check the status of rollout for a deployment
+- kubectl rollout undo deployment deploymentname     &emsp;&emsp;&emsp;        : To undo a rollout 
