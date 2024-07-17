@@ -437,4 +437,9 @@ The four mandatory parts for a manifest are defined above that are common for ea
 kubectl set image deployment deploymentname containername=newimagename
 
 **Usage:**
+
   kubectl set image deployment myapp mywebapp=httpd:latest
+
+### **Some Important commands**:
+- kubectl rollout status deployment deploymentname     : To check the status of rollout for a deployment
+-        
