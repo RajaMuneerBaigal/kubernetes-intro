@@ -430,3 +430,11 @@ The four mandatory parts for a manifest are defined above that are common for ea
   
 ### Volumes in Kubernetes
 ![image](https://github.com/user-attachments/assets/653a4f84-6610-4c5f-9e8e-d5f57ed7faca)
+
+### Update a container image running in kubernetes cluster
+**Command**
+
+kubectl set image deployment deploymentname containername=newimagename
+
+**Usage:**
+  kubectl set image deployment myapp mywebapp=httpd:latest
