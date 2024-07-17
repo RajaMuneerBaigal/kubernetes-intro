@@ -442,4 +442,4 @@ kubectl set image deployment deploymentname containername=newimagename
 
 ### **Some Important commands**:
 - kubectl rollout status deployment deploymentname &emsp;&emsp;&emsp;&emsp;    : To check the status of rollout for a deployment
-- kubectl rollout undo deployment deploymentname     &emsp;&emsp;&emsp;        : To undo a rollout 
+- kubectl rollout undo deployment deploymentname    &emsp; &emsp;&emsp;&emsp;        : To undo a failed or faulty deployment to previouse deployment
