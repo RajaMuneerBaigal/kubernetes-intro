@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-db-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-db-app
+  template:
+    metadata:
+      labels:
+        app: node-db-app
+    spec:
+      containers:
+        - name: node-db-app
+          image: rajamuneer/test-node-app:03
+          ports:
+             - containerPort: 3000
+          imagePullPolicy: Always
+          env:
+            - name: MONGO_HOST
+              valueFrom:
+                 configMapKeyRef:
+                    name: mongo-config
+                    key: MONGO_HOST
+            - name: MONGO_PORT
+              valueFrom:
+                 configMapKeyRef:
+                    name: mongo-config
+                    key: MONGO_PORT
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  ports:
+    - name: tcp
+      port: 3000
+      targetPort: 3000
+  selector:
+      app: node-db-app
+  type: NodePort
+

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-db-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-db-app
+  template:
+    metadata:
+      labels:
+        app: node-db-app
+    spec:
+      containers:
+        - name: node-db-app
+          image: rajamuneer/test-node-app:02
+          ports:
+             - containerPort: 3000
+          imagePullPolicy: Always
+        - name: mongo
+          image: mongo
+          ports:
+             - containerPort: 27017
+
+
