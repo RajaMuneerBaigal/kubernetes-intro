@@ -28,7 +28,7 @@ Kubernetes provides you with:
 ### Kubernetes Important Components and Terminologies
  -------------------------------------------------
 
-- Kubernets     : The whole orchestration system. K8s or kube for short
+- "Kubernets"     : The whole orchestration system. K8s or kube for short
 - kubectl       : Cli to configure kubernetes and manage apps. Kubecontrol is the short form means we can control kubernetes using kubectl
 - node          : A singel server in kubernetes cluster
 - kubelet       : kubernetes agents running on nodes
