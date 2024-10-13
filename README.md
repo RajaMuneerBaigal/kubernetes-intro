@@ -25,7 +25,7 @@ Kubernetes provides you with:
 - IPv4/IPv6 dual-stack Allocation of IPv4 and IPv6 addresses to Pods and Services
 - Designed for extensibility Add features to your Kubernetes cluster without changing upstream source code.
 
-### Kubernetes Architecture Terminology
+### Kubernetes Important Components and Terminologies
  -------------------------------------------------
 
 - Kubernets     : The whole orchestration system. K8s or kube for short
@@ -35,9 +35,10 @@ Kubernetes provides you with:
 - Control Plane : manages Kubernetes clusters and the workloads running on them. Include components like the API Server, Scheduler,etcd and Controller Manager.
 - Pod           : one or more containers running together on one Node. Basic unit of deployment. Containers are always in the pod.
 - Controller    : For creating/updating pods and other objects. Types of controllers include Deployment, Replicaset, Stateful,Job,CronJob, Stateful set, Daemonset and so on. 
-- Service       : network endpoint to connect to a pod
+- Service       : network endpoint to connect to a pod. usually when we create pods they acquire an internal ip which is good for dev but for prod we need to create services which has a better lifecycle                   and doesn't change.
 - Namespace     : Filtered group of objects inside a cluster.
-- Secrects,Configmaps and more
+- Configmaps    : Config maps used for external configurations of our app. i.e database_url 
+- Secrects      : used to store secrets such as db_pass and so on.
 
 ### Creating Pods in Kubernetes:
  -------------------------------------------------
