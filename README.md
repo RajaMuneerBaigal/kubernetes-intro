@@ -14,44 +14,57 @@ Containers are a good way to bundle and run your applications. In a production e
 That's how Kubernetes comes to the rescue! Kubernetes provides you with a framework to run distributed systems resiliently. It takes care of scaling and failover for your application, provides deployment patterns, and more.
 Kubernetes provides you with:
 
-- Service discovery and load balancing Kubernetes can expose a container using the DNS name or using their own IP address. If traffic to a container is high, Kubernetes is able to load balance and distribute the network traffic so that the deployment is stable.
-- Storage orchestration Kubernetes allows you to automatically mount a storage system of your choice, such as local storages, public cloud providers, and more.
-- Automated rollouts and rollbacks You can describe the desired state for your deployed containers using Kubernetes, and it can change the actual state to the desired state at a controlled rate. For example, you can automate Kubernetes to create new containers for your deployment, remove existing containers and adopt all their resources to the new container.
-- Automatic bin packing You provide Kubernetes with a cluster of nodes that it can use to run containerized tasks. You tell Kubernetes how much CPU and memory (RAM) each container needs. Kubernetes can fit containers onto your nodes to make the best use of your resources.
-- Self-healing Kubernetes restarts containers that fail, replaces containers, kills containers that don't respond to your user-defined health check, and doesn't advertise them to clients until they are ready to serve.
-- Secret and configuration management Kubernetes lets you store and manage sensitive information, such as passwords, OAuth tokens, and SSH keys. You can deploy and update secrets and application configuration without rebuilding your container images, and without exposing secrets in your stack configuration.
-- Batch execution In addition to services, Kubernetes can manage your batch and CI workloads, replacing containers that fail, if desired.
-- Horizontal scaling Scale your application up and down with a simple command, with a UI, or automatically based on CPU usage.
-- IPv4/IPv6 dual-stack Allocation of IPv4 and IPv6 addresses to Pods and Services
-- Designed for extensibility Add features to your Kubernetes cluster without changing upstream source code.
+- **Service discovery and load balancing:**
+   Kubernetes can expose a container using the DNS name or using their own IP address. If traffic to a container is high, Kubernetes is able to load balance and distribute the network traffic so that 
+   the deployment is stable.
+- **Storage orchestration:**
+   Kubernetes allows you to automatically mount a storage system of your choice, such as local storages, public cloud providers, and more.
+- **Automated rollouts and rollbacks:**
+   You can describe the desired state for your deployed containers using Kubernetes, and it can change the actual state to the desired state at a controlled rate. For example, you can automate 
+   Kubernetes to create new containers for your deployment, remove existing containers and adopt all their resources to the new container.
+- **Automatic bin packing:**
+   You provide Kubernetes with a cluster of nodes that it can use to run containerized tasks. You tell Kubernetes how much CPU and memory (RAM) each container needs. Kubernetes can 
+  fit containers onto your nodes to make the best use of your resources.
+- **Self-healing:**
+  Kubernetes restarts containers that fail, replaces containers, kills containers that don't respond to your user-defined health check, and doesn't advertise them to clients until they are ready to serve.
+- **Secret and configuration management:**
+  Kubernetes lets you store and manage sensitive information, such as passwords, OAuth tokens, and SSH keys. You can deploy and update secrets and application configuration without rebuilding your container images, and without exposing secrets in your stack configuration.
+- **Batch execution:**
+  In addition to services, Kubernetes can manage your batch and CI workloads, replacing containers that fail, if desired.
+- **Horizontal scaling:**
+  Scale your application up and down with a simple command, with a UI, or automatically based on CPU usage.
+- **IPv4/IPv6 dual-stack:**
+  Allocation of IPv4 and IPv6 addresses to Pods and Services
+- **Designed for extensibility:**
+  Add features to your Kubernetes cluster without changing upstream source code.
 
 ### Kubernetes Important Components and Terminologies
  -------------------------------------------------
 
-- "Kubernets"     : The whole orchestration system. K8s or kube for short
-- kubectl       : Cli to configure kubernetes and manage apps. Kubecontrol is the short form means we can control kubernetes using kubectl
-- node          : A singel server in kubernetes cluster
-- kubelet       : kubernetes agents running on nodes
-- Control Plane : manages Kubernetes clusters and the workloads running on them. Include components like the API Server, Scheduler,etcd and Controller Manager.
-- Pod           : one or more containers running together on one Node. Basic unit of deployment. Containers are always in the pod. usually preferred to run one container per pod.
-- Controller    : For creating/updating pods and other objects. Types of controllers include Deployment, Replicaset, Stateful,Job,CronJob, Stateful set, Daemonset and so on. 
-- Service       : network endpoint to connect to a pod. When a pod dies and gets recreated its ip changes so its not a good sign especially when we are using pods ips to communicate. services have a 
+- **Kubernets**     : The whole orchestration system. K8s or kube for short
+- **kubectl**       : Cli to configure kubernetes and manage apps. Kubecontrol is the short form means we can control kubernetes using kubectl
+- **node**          : A single server in kubernetes cluster
+- **kubelet**       : kubernetes agents running on nodes
+- **Control Plane** : manages Kubernetes clusters and the workloads running on them. Include components like the API Server, Scheduler,etcd and Controller Manager.
+- **Pod**           : one or more containers running together on one Node. Basic unit of deployment. Containers are always in the pod. usually preferred to run one container per pod.
+- **Controller**    : For creating/updating pods and other objects. Types of controllers include Deployment, Replicaset, Stateful,Job,CronJob, Stateful set, Daemonset and so on. 
+- **Service**       : network endpoint to connect to a pod. When a pod dies and gets recreated its ip changes so its not a good sign especially when we are using pods ips to communicate. services have a 
                   permanent ip address which can be attached to a pod as its lifecycle to pod is not connected so even if a pod dies the service ip will still be there. its a permanent ip and load 
                   balancer as well
-- Ingress       : used to route traffic into the cluster
-- Namespace     : Filtered group of objects inside a cluster.
-- Configmaps    : Config maps used for external configurations of our app. i.e database_url. Its connected to a pod so the pod can get the data from the configmap.
-- Secrects      : used to store secrets such as db_pass etc. Much like config map but it stores the important secrets in base64 encoded mode.
-- Volumes       : used for persistency of data because if a pod restarts it lost its data.
-- Deployments   : blueprints for an application pods.
-- Stateful sets : statefulsets used for applications like databases. It allows us to read/write to a database without having to worry about any conflicts.
+- **Ingress**       : used to route traffic into the cluster
+- **Namespace**     : Filtered group of objects inside a cluster.
+- **Configmaps**    : Config maps used for external configurations of our app. i.e database_url. Its connected to a pod so the pod can get the data from the configmap.
+- **Secrects**      : used to store secrets such as db_pass etc. Much like config map but it stores the important secrets in base64 encoded mode.
+- **Volumes**       : used for persistency of data because if a pod restarts it lost its data.
+- **Deployments**   : blueprints for an application pods.
+- **Stateful sets** : statefulsets used for applications like databases. It allows us to read/write to a database without having to worry about any conflicts.
 ### Creating Pods in Kubernetes:
  -------------------------------------------------
 we get three ways to create pods from the kubectl CLI: kubectl run, kubectl create, kubectl apply. Pods are specifically a kubernetes concept. Unlike docker we can't directly create a container in k8s so we create pods and then k8s creates the containers inside the pod. Kubernetes uses kubelet(agent running on node) to create containers which in turn tells the container runtime(docker,contained,podmon) resulting in creating containers. Every resource type in kubernetes that wants to create containers does it via pods. Pods once created gets their own internal ip. when a pods gets down or crashes a new pod is created and its ip will be different then the previous one. 
 ![image](https://github.com/user-attachments/assets/27fcb4db-4d93-4e25-9f68-acbe74206a97)
 
 
-- **kubectl run**     :use to create a single pod per command. Similar to docker run command.
+- <ins>**kubectl run**</ins>     :use to create a single pod per command. Similar to docker run command.
 
   **Syntax:**     
     kubectl run anypodname --image imagename
