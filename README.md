@@ -1,6 +1,6 @@
 # kubernetes-intro
 
-<ins>### What is Kubernetes?></ins>
+### <ins>What is Kubernetes?></ins>
  -------------------------------------------------
 
 Kubernetes is a popular container orchestrator. Container orchestration means making many servers act like one. Orchestrator actually takes our containers that we ask it to run and it takes series of servers or nodes and decides how to run those container workloads across servers/nodes. It runs on top of docker usually as a set of APIs in containers. Kubernetes provides sets of apis and cli to manage containers across servers/nodes. Many clouds providers have integrated kubernetes into their infrastructure being a popular orchestrations tools such as eks, aks,gks etc.
