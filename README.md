@@ -33,16 +33,21 @@ Kubernetes provides you with:
 - node          : A singel server in kubernetes cluster
 - kubelet       : kubernetes agents running on nodes
 - Control Plane : manages Kubernetes clusters and the workloads running on them. Include components like the API Server, Scheduler,etcd and Controller Manager.
-- Pod           : one or more containers running together on one Node. Basic unit of deployment. Containers are always in the pod.
+- Pod           : one or more containers running together on one Node. Basic unit of deployment. Containers are always in the pod. usually preferred to run one container per pod.
 - Controller    : For creating/updating pods and other objects. Types of controllers include Deployment, Replicaset, Stateful,Job,CronJob, Stateful set, Daemonset and so on. 
-- Service       : network endpoint to connect to a pod. usually when we create pods they acquire an internal ip which is good for dev but for prod we need to create services which has a better lifecycle                   and doesn't change.
+- Service       : network endpoint to connect to a pod. When a pod dies and gets recreated its ip changes so its not a good sign especially when we are using pods ips to communicate. services have a 
+                  permanent ip address which can be attached to a pod as its lifecycle to pod is not connected so even if a pod dies the service ip will still be there. its a permanent ip and load 
+                  balancer as well
+- Ingress       : used to route traffic into the cluster
 - Namespace     : Filtered group of objects inside a cluster.
-- Configmaps    : Config maps used for external configurations of our app. i.e database_url 
-- Secrects      : used to store secrets such as db_pass and so on.
-
+- Configmaps    : Config maps used for external configurations of our app. i.e database_url. Its connected to a pod so the pod can get the data from the configmap.
+- Secrects      : used to store secrets such as db_pass etc. Much like config map but it stores the important secrets in base64 encoded mode.
+- Volumes       : used for persistency of data because if a pod restarts it lost its data.
+- Deployments   : blueprints for an application pods.
+- Stateful sets : statefulsets used for applications like databases. It allows us to read/write to a database without having to worry about any conflicts.
 ### Creating Pods in Kubernetes:
  -------------------------------------------------
-we get three ways to create pods from the kubectl CLI: kubectl run, kubectl create, kubectl apply. Pods are specifically a kubernetes concept. Unlike docker we can't directly create a container in k8s so we create pods and then k8s creates the containers inside the pod. Kubernetes uses kubelet(agent running on node) to create containers which in turn tells the container runtime(docker,contained,podmon) resulting in creating containers. Every resource type in kubernetes that wants to create containers does it via pods.
+we get three ways to create pods from the kubectl CLI: kubectl run, kubectl create, kubectl apply. Pods are specifically a kubernetes concept. Unlike docker we can't directly create a container in k8s so we create pods and then k8s creates the containers inside the pod. Kubernetes uses kubelet(agent running on node) to create containers which in turn tells the container runtime(docker,contained,podmon) resulting in creating containers. Every resource type in kubernetes that wants to create containers does it via pods. Pods once created gets their own internal ip. when a pods gets down or crashes a new pod is created and its ip will be different then the previous one. 
 ![image](https://github.com/user-attachments/assets/27fcb4db-4d93-4e25-9f68-acbe74206a97)
 
 
