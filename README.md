@@ -113,6 +113,20 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
     kubectl edit pod my-nginx
 
    -------------------------------------------------
+
+  - **kubectl exec**  : used to get inside a container in a pod/deployment. i.e just like docker exec
+    
+   **Syntax:**
+    
+    kubectl exec -it  podname/deploymentname -- /bin/sh
+  
+  **Usage:**
+  
+    kubectl exec -it deployment/my-nginx -- /bin/sh
+  
+    kubectl exec -it nginx-b4ccb96c6-nt2lc -- /bin/sh
+
+   -------------------------------------------------
 - **kubectl delete**  : used to delete any type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker rm i.e network, container, volume.
   
    **Syntax:**
