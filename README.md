@@ -141,6 +141,8 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
 
     kubectl delete service/httpenv service/httpenv-np service/httpenv-lb deployment/httpenv
 
+    kubectl delete deployment --all
+
    -------------------------------------------------
 - **kubectl apply**   : create/update anything via yml file. Similar to docker stack deploy where we use yml file to deploy containers
   
