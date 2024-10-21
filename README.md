@@ -443,10 +443,10 @@ status:
 - We can create a single file per resource or stack multiple resources into a single file using " --- " as separators and each file contains or more manifests. A full description of a resource is called manifest.
 - Each manifest describes an api object (deployment, job, secret)
 - Each manifest needs four parts( root key:values in the file)
-    - apiVersion
-    - kind
-    - metadata
-    - spec
+    - **apiVersion**
+    - **kind**
+    - **metadata**
+    - **spec**
       
 **NOTE:** You can see the examples of these manifests in this repo name pod.yml for single pod, deployment for only deployment and then combined together via single file named combined.yml.
 
