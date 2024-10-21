@@ -49,8 +49,8 @@ Kubernetes provides you with:
 - **Pod**           : one or more containers running together on one Node. Basic unit of deployment. Containers are always in the pod. usually preferred to run one container per pod.
 - **Controller**    : For creating/updating pods and other objects. Types of controllers include Deployment, Replicaset, Stateful,Job,CronJob, Stateful set, Daemonset and so on. 
 - **Service**       : network endpoint to connect to a pod. When a pod dies and gets recreated its ip changes so its not a good sign especially when we are using pods ips to communicate. services have a 
-                  permanent ip address which can be attached to a pod as its lifecycle to pod is not connected so even if a pod dies the service ip will still be there. its a permanent ip and load 
-                  balancer as well
+                      permanent ip address which can be attached to a pod as its lifecycle to pod is not connected so even if a pod dies the service ip will still be there. its a permanent ip and load 
+                      balancer as well
 - **Ingress**       : used to route traffic into the cluster
 - **Namespace**     : Filtered group of objects inside a cluster.
 - **Configmaps**    : Config maps used for external configurations of our app. i.e database_url. Its connected to a pod so the pod can get the data from the configmap.
@@ -451,14 +451,14 @@ status:
 **NOTE:** You can see the examples of these manifests in this repo name pod.yml for single pod, deployment for only deployment and then combined together via single file named combined.yml.
 
 ### Building our own yaml files:
-The four mandatory parts for a manifest are defined above that are common for each resource. But how to get more information about these parts as we might notice that the kuberenetes has evolved over time so the api versions and etc. 
+The four mandatory parts for a manifest are defined above and are common for each resource. But how to get more information about these parts as we might notice that the Kubernetes has evolved over time so the API versions and etc. 
 
 - **kind**: we can get a list of resources the cluster supports
      - kubectl api-resources
 - **apiVersion**: We can get the api version the cluster supports
      - kubectl api-versions
 - **metadata**: only name is required
-- **spec**: where we define all the specifications for a resources. we can dig down deep using the resource type.
+- **spec**: where we define all the resource specifications. We can dig deep using the resource type. Attributes of the "spec" are specific to the kind. i.e deployment, service etc. The template attribute inside the spec has its own spec and metadata section which is used for the creation of pods because deployment manages pods.
      - we can get all the keys each kind supports
        - kubectl explain services --recursive
        - kubectl explain services.spec
