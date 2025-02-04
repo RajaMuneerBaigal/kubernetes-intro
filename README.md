@@ -60,7 +60,12 @@ Kubernetes provides you with:
 - **Stateful sets** : statefulsets used for applications like databases. It allows us to read/write to a database without having to worry about any conflicts.
 ### Creating Pods in Kubernetes:
  -------------------------------------------------
-we get three ways to create pods from the kubectl CLI: kubectl run, kubectl create, kubectl apply. Pods are specifically a kubernetes concept. Unlike docker we can't directly create a container in k8s so we create pods and then k8s creates the containers inside the pod. Kubernetes uses kubelet(agent running on node) to create containers which in turn tells the container runtime(docker,contained,podmon) resulting in creating containers. Every resource type in kubernetes that wants to create containers does it via pods. Pods once created gets their own internal ip. when a pods gets down or crashes a new pod is created and its ip will be different then the previous one. 
+we get three ways to create pods from the kubectl CLI:
+ - kubectl run
+ -  kubectl create
+ -  kubectl apply.
+
+ Pods are specifically a kubernetes concept. Unlike docker we can't directly create a container in k8s so we create pods and then k8s creates the containers inside the pod. Kubernetes uses kubelet(agent running on node) to create containers which in turn tells the container runtime(docker,contained,podmon) resulting in creating containers. Every resource type in kubernetes that wants to create containers does it via pods. Pods once created gets their own internal ip. when a pods gets down or crashes a new pod is created and its ip will be different then the previous one. 
 ![image](https://github.com/user-attachments/assets/27fcb4db-4d93-4e25-9f68-acbe74206a97)
 
 
