@@ -82,6 +82,7 @@ we get three ways to create pods from the kubectl CLI: kubectl run, kubectl crea
   
   **Usage:**
     kubectl get pods
+  
     kubctl get all
     
 
