@@ -111,7 +111,7 @@ we get three ways to create pods from the kubectl CLI:
 
    -------------------------------------------------
 
-- **kubectl create**  : used to create many type of resources(pod,service,deployment and so on ) via cli or yml file. Similar to docker create i.e network, container, volume.
+- **kubectl create**  : used to create many type of resources(pod,service,deployment and so on ) via cli(except pod) or yml file. Similar to docker create i.e network, container, volume.
 - 
    **Syntax:**
      
