@@ -60,9 +60,9 @@ Kubernetes provides you with:
 - **Stateful sets** : statefulsets used for applications like databases. It allows us to read/write to a database without having to worry about any conflicts.
 
 ### Worker Node components :
- - Kubelet         : a component  that interacts with both container runtime and node
- - Kubeproxy       : a component responsible for forwarding request from services to pods
- - Container Runtime (Docker,Podman,CRIO)
+ - **Kubelet**             : a component  that interacts with both container runtime and node
+ - **Kubeproxy**           : a component responsible for forwarding request from services to pods
+ - **Container Runtime**   : A component necessary for running containers (Docker,Podman,CRIO)
 
 ### Master Node Components:
 - **Api Server**           : A component that lets us interact with kubernetes cluster using a cli(kubectl). Performs important operations like cluster gateway and also acts as a gatekeeper for 
