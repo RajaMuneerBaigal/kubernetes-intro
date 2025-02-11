@@ -525,9 +525,9 @@ The four mandatory parts for a manifest are defined above and are common for eac
 
  **Creating a Namespace**
   Namespaces can be created via 3 methods:
-   - via cli                          : kubectl create namespace newnamefornamespace
-   - can be done via a yml file       : define a configmap and define namespace inside it
-   - 
+   - via cli                                      : kubectl create namespace newnamefornamespace
+   - via apply -f filename.yml                    : define a yaml file for namespace
+   - via apply command on command line            : kubectl apply -f mydeploy.yml --namespace=my-new-namespace
 ## Volumes in Kubernetes
 ![image](https://github.com/user-attachments/assets/653a4f84-6610-4c5f-9e8e-d5f57ed7faca)
 
