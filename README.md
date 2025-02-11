@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/4988ccb2-acbb-4145-b16e-25705650a3bd)# kubernetes-intro
+# kubernetes-intro
 
 ## <ins>What is Kubernetes? </ins>
  -------------------------------------------------
