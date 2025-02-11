@@ -497,7 +497,17 @@ The four mandatory parts for a manifest are defined above and are common for eac
 **kubectl diff -f pod.yml**: To check the difference once you changed anything in yml file after deployment. Useful if you want to see which changes you made. it check the yaml we have applied before and changes we have made to the current yaml.
 
 **kubectl apply -f pod.yml --dry-run=server**: to check what is changed
-  
+
+### Namespaces in Kubernetes
+ 
+ - Used to organise resources in namespaces
+ - its like a virtual cluster inside a cluster
+ 
+ By default when we create resources in kubernetes cluster they are created in a default namespaces which comes along with the kubernetes installation by default along with three other name spaces 
+ kube-system, kube-public and kube-node-lease. To check what namespaces we have in our cluster we can use command:
+ 
+  ** kubectl get namespaces **
+ 
 ### Volumes in Kubernetes
 ![image](https://github.com/user-attachments/assets/653a4f84-6610-4c5f-9e8e-d5f57ed7faca)
 
