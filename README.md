@@ -1,4 +1,4 @@
-# kubernetes-intro
+![image](https://github.com/user-attachments/assets/4988ccb2-acbb-4145-b16e-25705650a3bd)# kubernetes-intro
 
 ## <ins>What is Kubernetes? </ins>
  -------------------------------------------------
@@ -519,7 +519,9 @@ The four mandatory parts for a manifest are defined above and are common for eac
  ![image](https://github.com/user-attachments/assets/7ce451f9-920f-4282-ad0b-4540a6e0df83)
 ![image](https://github.com/user-attachments/assets/04c6baed-c249-48e8-a921-c642b14775cb)
 
-
+**To check which resources can be namespaced and which can't be namespaced we can using the following commands:**
+- kubectl api-resources --namespaced=true
+- kubectl api-resources --namespaced=false
 
  **Creating a Namespace**
   Namespaces can be created via 3 methods:
