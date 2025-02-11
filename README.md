@@ -502,12 +502,27 @@ The four mandatory parts for a manifest are defined above and are common for eac
  
  - Used to organise resources in namespaces
  - its like a virtual cluster inside a cluster
+ - Used to group resources in a namespace   i.e namespace for db, namespace for monitoring tools and so on
+ - Used to limit access to resources on namespaces i.e two teams have their own isolated environment. we can also limit resources usage like cpu,ram based on namespaces
+ - Used to share common resources against different environments i.e test,prod,dev environment could have a same dependency like logging so creating a namespace for logging which can be used by any env.
+ - Used to avoid conflicts in deployment of resources . i.e two teams deployment same name resources with different configuration could end up in overwriting the work done by one time
  
  By default when we create resources in kubernetes cluster they are created in a default namespaces which comes along with the kubernetes installation by default along with three other name spaces 
  kube-system, kube-public and kube-node-lease. To check what namespaces we have in our cluster we can use command:
  
-  ** kubectl get namespaces **
- 
+  **kubectl get namespaces**
+
+ **IMPORTANT NOTE**
+   We can't access most of the resources from other namespace. i.e a configmap in one namespace can't be refrenced in another namespace but we can access service defined in another namespace using servicename.namespace
+   ![image](https://github.com/user-attachments/assets/302a15ac-2a41-431e-9372-e674d5375bab)
+
+   ![image](https://github.com/user-attachments/assets/e45af1b0-e8c6-4bf7-9f32-cd811e715a5e)
+
+ **Creating a Namespace**
+  Namespaces can be created via 3 methods:
+   - via cli                          : kubectl create namespace newnamefornamespace
+   - can be done via a yml file       : define a configmap and define namespace inside it
+   - 
 ## Volumes in Kubernetes
 ![image](https://github.com/user-attachments/assets/653a4f84-6610-4c5f-9e8e-d5f57ed7faca)
 
