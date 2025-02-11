@@ -58,12 +58,28 @@ Kubernetes provides you with:
 - **Volumes**       : used for persistency of data because if a pod restarts it lost its data.
 - **Deployments**   : blueprints for an application pods.
 - **Stateful sets** : statefulsets used for applications like databases. It allows us to read/write to a database without having to worry about any conflicts.
+
+### Worker Node components :
+ - Kubelet         : a component  that interacts with both container runtime and node
+ - Kubeproxy       : a component responsible for forwarding request from services to pods
+ - Container Runtime (Docker,Podman,CRIO)
+
+### Master Node Components:
+- Api Server           : A component that lets us interact with kubernetes cluster using a cli(kubectl). Performs important operations like cluster gateway and also acts as a gatekeeper for 
+                         authentication.
+  
+- Scheduler            : A component that based on request came through api server schedules the job of creating a deployment intelligently by choosing a node.
+  
+- Controller Manager   : A component responsible for detecting the state changes. e.g dying of a pod, or creation of a pod
+
+- Etcd                 : Brain of the cluster stores every information e.g cluster changes get stored in this database, all the processes that are related to scheduler and controller manager are done by 
+                         the information it gets from etcd
 ### Creating Pods in Kubernetes:
  -------------------------------------------------
 we get three ways to create pods from the kubectl CLI:
  - kubectl run
  -  kubectl create
- -  kubectl apply.
+ -  kubectl apply
 
  Pods are specifically a kubernetes concept. Unlike docker we can't directly create a container in k8s so we create pods and then k8s creates the containers inside the pod. Kubernetes uses kubelet(agent running on node) to create containers which in turn tells the container runtime(docker,contained,podmon) resulting in creating containers. Every resource type in kubernetes that wants to create containers does it via pods. Pods once created gets their own internal ip. when a pods gets down or crashes a new pod is created and its ip will be different then the previous one. 
 ![image](https://github.com/user-attachments/assets/27fcb4db-4d93-4e25-9f68-acbe74206a97)
@@ -103,7 +119,7 @@ we get three ways to create pods from the kubectl CLI:
   **Usage:**
   
     kubectl create deployment my-nginx --image nginx:alpine
--   When we request a deployment, it is sent to the control plane which has a web api to which we have been talking and it takes that record and stores it in the etcd database and that etcd database stores the data for deployment. There is a control manager inside the control plane and the manager's job is to look at all the different type of resources and make sure to assign a controller that is assigned to that resource type that we have requested in our case it is deployment or pod. And the job of a deployment resource is to do one thing to create replicaset. A deployment doesn't really creates pod's directly it creates replicasets because thats what help us in rolling updates making sure we can create new deployments without having to remove the old ones so incase of failure we can roll back to our previouse replicaset. When the control manager sees a record for deployment in etcd database it assings a replicaset controller and see's that it needs to create some pods so it creates the definition of those  pods by adding them to the etcd database and now a scheduler which continously takes to etcd notices that pods have not be scheduled to a node and once the pods have been scheduled to a node then kubelet creates those pods and that is why we run kubectl get all for a deployment we see all those replicaset and other stuf.
+-   When we request a deployment, it is sent to the control plane which has a web api(api server) to which we have been talking and it takes that record and stores it in the etcd database . There is a control manager inside the control plane and the manager's job is to look at all the different type of resources and make sure to assign a controller that is assigned to that resource type that we have requested in our case it is deployment. And the job of a deployment resource is to do one thing to create replicaset. A deployment doesn't really creates pod's directly it creates replicasets because thats what help us in rolling updates making sure we can create new deployments without having to remove the old ones so incase of failure we can roll back to our previouse replicaset. When the control manager sees a record for deployment in etcd database it assings a replicaset controller and see's that it needs to create some pods so it creates the definition of those  pods by adding them to the etcd database and now a scheduler which continously takes to etcd notices that pods have not be scheduled to a node and once the pods have been scheduled to a node then kubelet creates those pods and that is why we run kubectl get all for a deployment we see all those replicaset and other stuf.
 ![image](https://github.com/user-attachments/assets/a0f6df07-6a38-43d1-8aea-67cc5466e012)
    -------------------------------------------------
 - **kubectl edit**  : used to edit any type of resources(pod,service,deployment and so on ) via cli.
