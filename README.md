@@ -65,21 +65,22 @@ Kubernetes provides you with:
  - Container Runtime (Docker,Podman,CRIO)
 
 ### Master Node Components:
-- Api Server           : A component that lets us interact with kubernetes cluster using a cli(kubectl). Performs important operations like cluster gateway and also acts as a gatekeeper for 
-                         authentication.
+- **Api Server**           : A component that lets us interact with kubernetes cluster using a cli(kubectl). Performs important operations like cluster gateway and also acts as a gatekeeper for 
+                            authentication.
   
-- Scheduler            : A component that based on request came through api server schedules the job of creating a deployment intelligently by choosing a node.
+- **Scheduler**            : A component that based on request came through api server schedules the job of creating a deployment intelligently by choosing a node.
   
-- Controller Manager   : A component responsible for detecting the state changes. e.g dying of a pod, or creation of a pod
+- **Controller Manager**   : A component responsible for detecting the state changes. e.g dying of a pod, or creation of a pod
 
-- Etcd                 : Brain of the cluster stores every information e.g cluster changes get stored in this database, all the processes that are related to scheduler and controller manager are done by 
-                         the information it gets from etcd
+- **Etcd**                 : Brain of the cluster stores every information e.g cluster changes get stored in this database, all the processes that are related to scheduler and controller manager are 
+                             done by the information it gets from etcd
+  
 ### Creating Pods in Kubernetes:
  -------------------------------------------------
 we get three ways to create pods from the kubectl CLI:
- - kubectl run
- -  kubectl create
- -  kubectl apply
+ - **kubectl run**
+ - **kubectl create**
+ - **kubectl apply**
 
  Pods are specifically a kubernetes concept. Unlike docker we can't directly create a container in k8s so we create pods and then k8s creates the containers inside the pod. Kubernetes uses kubelet(agent running on node) to create containers which in turn tells the container runtime(docker,contained,podmon) resulting in creating containers. Every resource type in kubernetes that wants to create containers does it via pods. Pods once created gets their own internal ip. when a pods gets down or crashes a new pod is created and its ip will be different then the previous one. 
 ![image](https://github.com/user-attachments/assets/27fcb4db-4d93-4e25-9f68-acbe74206a97)
