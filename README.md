@@ -514,9 +514,10 @@ The four mandatory parts for a manifest are defined above and are common for eac
 
  **IMPORTANT NOTE**
    We can't access most of the resources from other namespace. i.e a configmap in one namespace can't be refrenced in another namespace but we can access service defined in another namespace using servicename.namespace
-   ![image](https://github.com/user-attachments/assets/302a15ac-2a41-431e-9372-e674d5375bab)
+ ![image](https://github.com/user-attachments/assets/12b47bb0-8954-46b3-8128-6350a720f013)
+ ![image](https://github.com/user-attachments/assets/7ce451f9-920f-4282-ad0b-4540a6e0df83)
 
-   ![image](https://github.com/user-attachments/assets/e45af1b0-e8c6-4bf7-9f32-cd811e715a5e)
+
 
  **Creating a Namespace**
   Namespaces can be created via 3 methods:
