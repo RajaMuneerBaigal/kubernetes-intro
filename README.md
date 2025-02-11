@@ -1,12 +1,12 @@
 # kubernetes-intro
 
-### <ins>What is Kubernetes? </ins>
+## <ins>What is Kubernetes? </ins>
  -------------------------------------------------
 
 Kubernetes is a popular container orchestrator. Container orchestration means making many servers act like one. Orchestrator actually takes our containers that we ask it to run and it takes series of servers or nodes and decides how to run those container workloads across servers/nodes. It runs on top of docker usually as a set of APIs in containers. Kubernetes provides sets of apis and cli to manage containers across servers/nodes. Many clouds providers have integrated kubernetes into their infrastructure being a popular orchestrations tools such as eks, aks,gks etc.
 
 
-### Why Kubernetes?
+## Why Kubernetes?
  -------------------------------------------------
 
 Containers are a good way to bundle and run your applications. In a production environment, you need to manage the containers that run the applications and ensure that there is no downtime. For example, if a container goes down, another container needs to start. Wouldn't it be easier if this behavior was handled by a system?
@@ -38,7 +38,7 @@ Kubernetes provides you with:
 - **Designed for extensibility:**
   Add features to your Kubernetes cluster without changing upstream source code.
 
-### Kubernetes Important Components and Terminologies
+## Kubernetes Important Components and Terminologies
  -------------------------------------------------
 
 - **Kubernets**     : The whole orchestration system. K8s or kube for short
@@ -59,12 +59,12 @@ Kubernetes provides you with:
 - **Deployments**   : blueprints for an application pods.
 - **Stateful sets** : statefulsets used for applications like databases. It allows us to read/write to a database without having to worry about any conflicts.
 
-### Worker Node components :
+## Worker Node components :
  - **Kubelet**             : a component  that interacts with both container runtime and node
  - **Kubeproxy**           : a component responsible for forwarding request from services to pods
  - **Container Runtime**   : A component necessary for running containers (Docker,Podman,CRIO)
 
-### Master Node Components:
+## Master Node Components:
 - **Api Server**           : A component that lets us interact with kubernetes cluster using a cli(kubectl). Performs important operations like cluster gateway and also acts as a gatekeeper for 
                             authentication.
   
@@ -75,7 +75,7 @@ Kubernetes provides you with:
 - **Etcd**                 : Brain of the cluster stores every information e.g cluster changes get stored in this database, all the processes that are related to scheduler and controller manager are 
                              done by the information it gets from etcd
   
-### Creating Pods in Kubernetes:
+## Creating Pods in Kubernetes:
  -------------------------------------------------
 we get three ways to create pods from the kubectl CLI:
  - **kubectl run**
@@ -187,7 +187,7 @@ we get three ways to create pods from the kubectl CLI:
 
   -------------------------------------------------
 
-### Inspecting Kubernetes Resources
+## Inspecting Kubernetes Resources
 It is very important when dealing with deployments/pods/services to know the status of that, how is it running,what resources it is creating,Is there any failure in creating resources. So to inspect kubernetes resources Kubectl provides us with the following commands.
 - **kubectl get**: Used to get information about pods,deployments,replicasets,services and so on.
     **Usage**:
@@ -234,7 +234,7 @@ It is very important when dealing with deployments/pods/services to know the sta
 
 ------------------------------------------------------------
 
-### Logs in Kubernetes
+## Logs in Kubernetes
 The kubernetes logs aren't stored in api or etcd database these logs are stored by default on each node within the container runtime. the kubernetes logs command tells the api to tell then the kubelet on each node to start send the logs back to the API so it can show us.
 
 - **kubectl logs**: used to get the logs for a container running in pods
@@ -261,7 +261,7 @@ The kubernetes logs aren't stored in api or etcd database these logs are stored 
   
 ------------------------------------------------------------
 
-### Exposing Ports in Kubernetes
+## Exposing Ports in Kubernetes
 Once we have pods running in our Kubernetes we probably want to expose them to external services which means allowing them to access connections in our cluster from outside cluster. Unlike docker it doesn't expose them directly we need to create services for them via which we can expose them. A service is an endpoint that is consistent so that the other things inside or outside the cluster might be able to access it. A service is a stable address for pod(s). When we create a Pod that doesn't automatically get a DNS name for external connectivity with an IP address we need to do it via service on top of that existing pod. There are various ways besides the expose command below to create a service. CoreDns being a part of the control plane is a reason that allows us to resolve services by name. How we get traffic to our service essentially is the job of one of the four different service types mentioned below. Cluster IP and node port are always available in Kubernetes
 
 - ClusterIP(default)
@@ -331,7 +331,7 @@ Once we have pods running in our Kubernetes we probably want to expose them to e
    
 ------------------------------------------------------------
 
-### Kubernetes Management techniques
+## Kubernetes Management techniques
 When we were writing kubectl commands either it be get,create,delete  use helper templates called generators. Every resource in kubernetes has a specification or spec. Generators are different for each type of service we are creating either it be deployment,service,pod,job and so on.We can output those templates using --dry-run=client -o yaml. We can look at examples below:
 **Examples:**
 
@@ -411,7 +411,7 @@ status:
 
 ```
 
-### Imperative vs Declaritive
+## Imperative vs Declaritive
 **Imperative:** 
 
 - Focus on how a program operates
@@ -427,7 +427,7 @@ status:
 - Resources can all be in a single yaml file or many files (whole dir)
 - Used in production and easiest way to automate i.e iaac
 
-### Three Management approaches defined by Kubernets
+## Three Management approaches defined by Kubernets
 
 - **Imperative commands**: run, expose,scale,edit,create deployment,delete
   
@@ -444,7 +444,7 @@ status:
     - Easier to automate
     - Harder to understand and predict changes
       
-### Declaritive Kubernetes Yaml
+## Declaritive Kubernetes Yaml
  Declaritive kubernetes is more of a DevOps style and used in production where all we have to do is to create,update,delete resources via yaml. It gives more control and is widely used in production.
 
 **Command**:
@@ -461,7 +461,7 @@ status:
    kubectl apply -f yamlfiles/
    kubectl apply -f https://bret.run/pod.yml
 
-### Kuberenetes Configuration via File
+## Kuberenetes Configuration via File
 - Kubernetes configuration can be done via yaml file or json file.
 - We can create a single file per resource or stack multiple resources into a single file using " --- " as separators and each file contains or more manifests. A full description of a resource is called manifest.
 - Each manifest describes an api object (deployment, job, secret)
@@ -473,7 +473,7 @@ status:
       
 **NOTE:** You can see the examples of these manifests in this repo name pod.yml for single pod, deployment for only deployment and then combined together via single file named combined.yml.
 
-### Building our own yaml files:
+## Building our own yaml files:
 The four mandatory parts for a manifest are defined above and are common for each resource. But how to get more information about these parts as we might notice that the Kubernetes has evolved over time so the API versions and etc. 
 
 - **kind**: we can get a list of resources the cluster supports
@@ -498,7 +498,7 @@ The four mandatory parts for a manifest are defined above and are common for eac
 
 **kubectl apply -f pod.yml --dry-run=server**: to check what is changed
 
-### Namespaces in Kubernetes
+## Namespaces in Kubernetes
  
  - Used to organise resources in namespaces
  - its like a virtual cluster inside a cluster
@@ -508,10 +508,10 @@ The four mandatory parts for a manifest are defined above and are common for eac
  
   ** kubectl get namespaces **
  
-### Volumes in Kubernetes
+## Volumes in Kubernetes
 ![image](https://github.com/user-attachments/assets/653a4f84-6610-4c5f-9e8e-d5f57ed7faca)
 
-### Update a container image running in kubernetes cluster
+## Update a container image running in kubernetes cluster
 **Command**
 
 kubectl set image deployment deploymentname containername=newimagename
@@ -520,6 +520,6 @@ kubectl set image deployment deploymentname containername=newimagename
 
   kubectl set image deployment myapp mywebapp=httpd:latest
 
-### **Some Important commands**:
+## **Some Important commands**:
 - kubectl rollout status deployment deploymentname &emsp;&emsp;&emsp;&emsp;    : To check the status of rollout for a deployment
 - kubectl rollout undo deployment deploymentname    &emsp; &emsp;&emsp;&emsp;        : To undo a failed or faulty deployment to previouse deployment
