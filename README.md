@@ -554,3 +554,11 @@ kubectl set image deployment deploymentname containername=newimagename
 ## **Some Important commands**:
 - kubectl rollout status deployment deploymentname &emsp;&emsp;&emsp;&emsp;    : To check the status of rollout for a deployment
 - kubectl rollout undo deployment deploymentname    &emsp; &emsp;&emsp;&emsp;        : To undo a failed or faulty deployment to previouse deployment
+
+## Helm Charts
+- its a bundle of yml file someone put in public or private helm repositories
+- they are actually template files created by someone else so to avoid repetitive tasks. i.e deployment of a mongodb, elasticstack or some other application
+- helm is also a templating engine. e.g deployment and service configuration of several microservices are same except for few values so we can create a common blueprint and then generate new yaml files by just passing the values that needed to be changed. The blueprint is called template file and the values that needed to be changed can either come from  command line using --set flag or can come from a file named values.yml
+
+![image](https://github.com/user-attachments/assets/c4079413-0fa4-47e7-8c3a-aad360b772b8)
+
