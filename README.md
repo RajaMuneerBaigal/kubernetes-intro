@@ -515,8 +515,11 @@ The four mandatory parts for a manifest are defined above and are common for eac
  **IMPORTANT NOTE**
  
  **We can't access most of the resources from other namespace. i.e a configmap in one namespace can't be refrenced in another namespace but we can access service defined in another namespace using servicename.namespace**
+ 
  ![image](https://github.com/user-attachments/assets/12b47bb0-8954-46b3-8128-6350a720f013)
+ 
  ![image](https://github.com/user-attachments/assets/7ce451f9-920f-4282-ad0b-4540a6e0df83)
+ 
 ![image](https://github.com/user-attachments/assets/04c6baed-c249-48e8-a921-c642b14775cb)
 
 **To check which resources can be namespaced and which can't be namespaced we can using the following commands:**
@@ -529,6 +532,7 @@ The four mandatory parts for a manifest are defined above and are common for eac
    - via apply -f filename.yml                    : define a yaml file for namespace
    - via apply command on command line            : kubectl apply -f mydeploy.yml --namespace=my-new-namespace
 ## Volumes in Kubernetes
+
 ![image](https://github.com/user-attachments/assets/653a4f84-6610-4c5f-9e8e-d5f57ed7faca)
 
 ## Update a container image running in kubernetes cluster
@@ -539,8 +543,12 @@ kubectl set image deployment deploymentname containername=newimagename
 **Usage:**
 
   kubectl set image deployment myapp mywebapp=httpd:latest
+## Ingress Usage for path or sub domain:
+
+![image](https://github.com/user-attachments/assets/21cd8e4b-ff1d-4d27-bcde-7cfbc55b16f4)
 
 ## Configuring tls in ingress:
+
 ![image](https://github.com/user-attachments/assets/65547083-89c3-418f-b49d-ca96237662c7)
 
 ## **Some Important commands**:
