@@ -540,6 +540,9 @@ kubectl set image deployment deploymentname containername=newimagename
 
   kubectl set image deployment myapp mywebapp=httpd:latest
 
+## Configuring tls in ingress:
+![image](https://github.com/user-attachments/assets/65547083-89c3-418f-b49d-ca96237662c7)
+
 ## **Some Important commands**:
 - kubectl rollout status deployment deploymentname &emsp;&emsp;&emsp;&emsp;    : To check the status of rollout for a deployment
 - kubectl rollout undo deployment deploymentname    &emsp; &emsp;&emsp;&emsp;        : To undo a failed or faulty deployment to previouse deployment
